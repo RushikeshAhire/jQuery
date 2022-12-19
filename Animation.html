@@ -1,0 +1,72 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fade in fade out annimation</title>
+    <script src="jquery-3.6.2.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#animate').click(function() {
+                $("#id1") // method chaning= when you want to excute multiple function one after the other
+                    //then u can use method channing
+                    .css('color', 'red')
+                    .addClass("myclass")
+                    .animate({
+                        "margin": "100px",
+                        "width": "500px",
+                        "opacity": "0.5"
+                    }, 3000, function() {
+                        alert("annimation is done")
+                    })
+            })
+
+
+        });
+    </script>
+    <style>
+        #id1 {
+            background-color: aqua;
+            border: 1px solid red;
+            border-radius: 20px;
+            height: 200px;
+            width: 200px;
+        }
+        
+        #id2 {
+            background-color: rgb(87, 240, 57);
+            border: 1px solid rgb(37, 37, 37);
+            border-radius: 20px;
+            height: 200px;
+            width: 200px;
+        }
+        
+        .myclass {
+            font-size: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <p id="myp">
+
+    </p>
+    <button type="button" name="btn1" id="animate">Animation</button>
+    <button type="button" name="btn2" id="fadeout">Fade out</button>
+    <button type="button" name="btn3" id="toggle">Fade to </button>
+    <div id="id1">
+        <p>this<span>is</span>p1</p>
+        <p>this is p2</p>
+        <p>this is p3</p>
+        <p>this is p4</p>
+    </div>
+    <div id="id2">
+        <p>this <span>is</span>p1</p>
+        <p>This is p2</p>
+        <p>This is p3</p>
+        <p>This is p4</p>
+    </div>
+</body>
+
+</html>

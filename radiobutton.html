@@ -1,0 +1,111 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fade in fade out annimation</title>
+    <script src="jquery-3.6.2.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#show').change(function() {
+
+                if ($('#show').is(":checked")) {
+                    $('#id1').show(2000, function() {
+                        alert($('input:radio[name="animate"]:checked').val())
+                    })
+                } else {
+                    alert("show not selected")
+                }
+
+
+            })
+
+            $('#hide').change(function() {
+
+                if ($('#hide').is(":checked")) {
+                    $('#id1').hide(2000, function() {
+                        alert($('input:radio[name="animate"]:checked').val())
+                    })
+                } else {
+                    alert("show not selected")
+                }
+
+
+            })
+            $('#toggle').change(function() {
+
+                if ($('#toggle').is(":checked")) {
+                    $('#id1').toggle(2000, function() {
+                        alert($('input:radio[name="animate"]:checked').val())
+                    })
+                } else {
+                    alert("show not selected")
+                }
+
+
+            })
+            var cnt = 0;
+            $('#btn1').click(function() {
+
+                //$('input:radio[name=animate]:nth(1)').attr('checked', true);
+                $('input:radio[name=animate]')[cnt].checked = true;
+                if (cnt == 0) {
+                    $('input:radio[name=animate]:nth(0)').change();
+
+
+                } else {
+                    if (cnt == 1) {
+                        $('input:radio[name=animate]:nth(1)').change();
+                    } else {
+                        $('input:radio[name=animate]:nth(1)').change();
+                    }
+                }
+                cnt++;
+                if (cnt > 2) {
+                    cnt = 0;
+                }
+            })
+
+
+        });
+    </script>
+    <style>
+        #id1 {
+            background-color: aqua;
+            border: 1px solid red;
+            border-radius: 20px;
+            height: 200px;
+            width: 200px;
+        }
+        
+        #id2 {
+            background-color: rgb(87, 240, 57);
+            border: 1px solid rgb(37, 37, 37);
+            border-radius: 20px;
+            height: 200px;
+            width: 200px;
+        }
+        
+        .myclass {
+            font-size: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="id1">
+        <img src="3.jpg" width="200px" height="200px">
+    </div>
+
+
+    <div id="id2">
+
+        <input type="radio" name="animate" value="Here showing succefull" id="show">show
+        <input type="radio" name="animate" id="hide">hide
+        <input type="radio" name="animate" id="toggle">toggle
+        <button type="button" name="btn" id="btn1">Select</button>
+    </div>
+</body>
+
+</html>

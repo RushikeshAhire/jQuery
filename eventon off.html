@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ebvent on off</title>
+    <script src="jquery-3.6.2.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#btn1').one("click", function() {
+                $('#mydiv').append("<input type='text'>");
+            })
+            $('#btn2').click(function() {
+                $(':input').on("focus", function() {
+                    $(this).css({
+                        "background-color": "yellow",
+                        "border": "2px solid  red"
+                    })
+
+
+                    $(':input').on("blur", function() {
+                        $(this).css({
+                            "background-color": "white",
+                            "border": "2px solid  black"
+                        })
+                    })
+                })
+                $('#btn3').click(function() {
+                    $(':input').off("focus")
+                })
+            })
+        });
+    </script>
+</head>
+
+<body>
+    <button type="button" name="btn" id="btn1">Add input text here</button>
+    <button type="button" name="btn" id="btn2">Add input text here</button>
+    <button type="button" name="btn" id="btn3">Add input text here</button>
+    <div id="mydiv">
+
+
+    </div>
+</body>
+
+</html>
