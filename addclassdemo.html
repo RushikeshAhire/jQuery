@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>addclass demo</title>
+    <script src="jquery-3.6.2.js"></script>
+    <script>
+        $(document).ready(function() {
+
+            $("#show").change(function() {
+                //addClass if not there and remove class if it is there
+                $('label').toggleClass("myclass");
+                if ($(this).is(":checked")) {
+                    //assigning the value to any attribuite
+                    //$('#mydiv').attr("class","display")
+
+
+
+                    //assign the value class attribute
+                    $('#mydiv').addClass("display");
+                    //remove value class attribute
+                    $('#mydiv').removeClass("myc");
+                } else {
+                    $('#mydiv').removeClass("display");
+                    $('#mydiv').addClass("myc");
+                }
+
+            });
+
+
+            //hover event para
+            //if 2 functio are there first function will get executed when mouseover happens
+            //and secound function will get executed when mouse out happen
+            //buut id the only function uis given then the same function will get executed for th event 
+            $('#myp').hover(function() {
+                $('#myp').css("font-size", "50px");
+                $('#myp').addClass("myclass");
+            }, function() {
+                $('#myp').css("font-size", "20px");
+                $('#myp').removeClass("myclass")
+            })
+
+
+        });
+    </script>
+    <style>
+        .myc {
+            display: none;
+        }
+        
+        .display {
+            display: block;
+        }
+        
+        .myclass {
+            background-color: aqua;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="checkbox" name="show" id="show" value="show">
+    <label for="show"> select to see the data</label>
+    <div id="mydiv" class="myc">
+        <pre>
+        This is div which is visible 
+        when you check the chek box
+        otherwise it will be hidden
+    </pre>
+
+    </div>
+    <p id="myp"> Rushikesh Here</p>
+</body>
+
+</html>
